@@ -21,3 +21,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-4: Configure path aliases in tsconfig.json (#4) at 2026-07-07T11:33:09.473Z -->
 
 <!-- commit-5: Create theme provider structure for dark/light modes (#5) at 2026-07-07T14:14:12.631Z -->
+
+<!-- commit-6: Add global CSS baseline styling (#6) at 2026-07-07T16:55:15.789Z -->
