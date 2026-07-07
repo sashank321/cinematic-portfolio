@@ -17,3 +17,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-2: Add Next.js app layout skeleton (#2) at 2026-07-07T06:11:03.157Z -->
 
 <!-- commit-3: Install GSAP, Lenis, and Tailwind CSS (#3) at 2026-07-07T08:52:06.315Z -->
+
+<!-- commit-4: Configure path aliases in tsconfig.json (#4) at 2026-07-07T11:33:09.473Z -->
