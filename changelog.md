@@ -33,3 +33,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-10: Create basic responsive header navigation skeleton (#10) at 2026-07-08T03:39:28.421Z -->
 
 <!-- commit-11: Integrate Lenis smooth scrolling integration (#11) at 2026-07-08T06:20:31.578Z -->
+
+<!-- commit-12: Refine Hero animation entrance with GSAP timelines (#12) at 2026-07-08T09:01:34.736Z -->
