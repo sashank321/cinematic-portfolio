@@ -39,3 +39,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-13: Create About component visual layout structure (#13) at 2026-07-08T11:42:37.894Z -->
 
 <!-- commit-14: Add grid architecture for personal details in About (#14) at 2026-07-08T14:23:41.052Z -->
+
+<!-- commit-15: Implement custom noise overlay canvas (#15) at 2026-07-08T17:04:44.210Z -->
