@@ -27,3 +27,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-7: Define default theme variables and color palettes (#7) at 2026-07-07T19:36:18.947Z -->
 
 <!-- commit-8: Draft Hero component initial editorial layout (#8) at 2026-07-07T22:17:22.105Z -->
+
+<!-- commit-9: Implement custom serif and sans google fonts (#9) at 2026-07-08T00:58:25.263Z -->
