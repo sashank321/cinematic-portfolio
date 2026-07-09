@@ -57,3 +57,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-22: Introduce high-performance Canvas background placeholder (#22) at 2026-07-09T11:52:06.315Z -->
 
 <!-- commit-23: Draft basic particles dynamic movement script (#23) at 2026-07-09T14:33:09.473Z -->
+
+<!-- commit-24: Optimise canvas resize behavior to prevent redraw lag (#24) at 2026-07-09T17:14:12.631Z -->
