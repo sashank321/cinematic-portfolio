@@ -65,3 +65,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-26: Migrate ThemeToggle to navigation bar container (#26) at 2026-07-09T22:36:18.947Z -->
 
 <!-- commit-27: Reposition navigation bar layout to top-right design (#27) at 2026-07-10T01:17:22.105Z -->
+
+<!-- commit-28: Refine navigation selection tracking limelight indicator (#28) at 2026-07-10T03:58:25.263Z -->
