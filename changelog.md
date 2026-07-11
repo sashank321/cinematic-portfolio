@@ -83,3 +83,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-35: Configure scroll-triggered angle mapping algorithm (#35) at 2026-07-10T22:45:47.368Z -->
 
 <!-- commit-36: Counter-rotate card nodes to maintain readable verticality (#36) at 2026-07-11T01:26:50.526Z -->
+
+<!-- commit-37: Implement scroll progress tracking utility component (#37) at 2026-07-11T04:07:53.684Z -->
