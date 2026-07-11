@@ -85,3 +85,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-36: Counter-rotate card nodes to maintain readable verticality (#36) at 2026-07-11T01:26:50.526Z -->
 
 <!-- commit-37: Implement scroll progress tracking utility component (#37) at 2026-07-11T04:07:53.684Z -->
+
+<!-- commit-38: Attach active center limelight focus to timeline (#38) at 2026-07-11T06:48:56.842Z -->
