@@ -97,3 +97,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-42: Add dynamic ticking system along circular arc layout (#42) at 2026-07-11T17:33:09.473Z -->
 
 <!-- commit-43: Refine tick mark aesthetics matching original mockup concept (#43) at 2026-07-11T20:14:12.631Z -->
+
+<!-- commit-44: Create case study page header cinematic image node (#44) at 2026-07-11T22:55:15.789Z -->
