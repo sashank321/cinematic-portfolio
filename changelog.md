@@ -93,3 +93,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-40: Implement transition delay curves for inactive carousel items (#40) at 2026-07-11T12:11:03.157Z -->
 
 <!-- commit-41: Optimise wheel rendering path using translate3d triggers (#41) at 2026-07-11T14:52:06.315Z -->
+
+<!-- commit-42: Add dynamic ticking system along circular arc layout (#42) at 2026-07-11T17:33:09.473Z -->
