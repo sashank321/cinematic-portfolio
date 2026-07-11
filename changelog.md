@@ -89,3 +89,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-38: Attach active center limelight focus to timeline (#38) at 2026-07-11T06:48:56.842Z -->
 
 <!-- commit-39: Add active state detection on timeline scrolling offset (#39) at 2026-07-11T09:30:00.000Z -->
+
+<!-- commit-40: Implement transition delay curves for inactive carousel items (#40) at 2026-07-11T12:11:03.157Z -->
