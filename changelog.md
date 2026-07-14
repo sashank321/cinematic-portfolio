@@ -143,3 +143,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-65: Install GSAP, Lenis, and Tailwind CSS (#65) at 2026-07-14T07:17:22.105Z -->
 
 <!-- commit-66: Configure path aliases in tsconfig.json (#66) at 2026-07-14T09:58:25.263Z -->
+
+<!-- commit-67: Create theme provider structure for dark/light modes (#67) at 2026-07-14T12:39:28.421Z -->
