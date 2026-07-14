@@ -149,3 +149,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-68: Add global CSS baseline styling (#68) at 2026-07-14T15:20:31.578Z -->
 
 <!-- commit-69: Define default theme variables and color palettes (#69) at 2026-07-14T18:01:34.736Z -->
+
+<!-- commit-70: Draft Hero component initial editorial layout (#70) at 2026-07-14T20:42:37.894Z -->
