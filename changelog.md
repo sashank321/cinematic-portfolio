@@ -161,3 +161,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-74: Refine Hero animation entrance with GSAP timelines (#74) at 2026-07-15T07:26:50.526Z -->
 
 <!-- commit-75: Create About component visual layout structure (#75) at 2026-07-15T10:07:53.684Z -->
+
+<!-- commit-76: Add grid architecture for personal details in About (#76) at 2026-07-15T12:48:56.842Z -->
