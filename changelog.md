@@ -165,3 +165,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-76: Add grid architecture for personal details in About (#76) at 2026-07-15T12:48:56.842Z -->
 
 <!-- commit-77: Implement custom noise overlay canvas (#77) at 2026-07-15T15:30:00.000Z -->
+
+<!-- commit-78: Draft Case Studies data structures (#78) at 2026-07-15T18:11:03.157Z -->
