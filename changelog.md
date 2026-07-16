@@ -187,3 +187,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-87: Integrate ThemeToggle custom widget logic (#87) at 2026-07-16T18:20:31.578Z -->
 
 <!-- commit-88: Migrate ThemeToggle to navigation bar container (#88) at 2026-07-16T21:01:34.736Z -->
+
+<!-- commit-89: Reposition navigation bar layout to top-right design (#89) at 2026-07-16T23:42:37.894Z -->
