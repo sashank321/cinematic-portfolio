@@ -179,3 +179,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-83: Implement magnetic button hook for custom mouse interactions (#83) at 2026-07-16T07:36:18.947Z -->
 
 <!-- commit-84: Introduce high-performance Canvas background placeholder (#84) at 2026-07-16T10:17:22.105Z -->
+
+<!-- commit-85: Draft basic particles dynamic movement script (#85) at 2026-07-16T12:58:25.263Z -->
