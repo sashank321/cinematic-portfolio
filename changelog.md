@@ -185,3 +185,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-86: Optimise canvas resize behavior to prevent redraw lag (#86) at 2026-07-16T15:39:28.421Z -->
 
 <!-- commit-87: Integrate ThemeToggle custom widget logic (#87) at 2026-07-16T18:20:31.578Z -->
+
+<!-- commit-88: Migrate ThemeToggle to navigation bar container (#88) at 2026-07-16T21:01:34.736Z -->
