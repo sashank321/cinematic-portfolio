@@ -197,3 +197,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-92: Convert background style color parameters to Tailwind v4 variables (#92) at 2026-07-17T07:45:47.368Z -->
 
 <!-- commit-93: Implement true OLED black styling definitions (#93) at 2026-07-17T10:26:50.526Z -->
+
+<!-- commit-94: Adjust layout container backgrounds to use transparent colors (#94) at 2026-07-17T13:07:53.684Z -->
