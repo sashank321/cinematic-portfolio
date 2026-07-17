@@ -38,10 +38,8 @@ export default function Projects() {
         }
       );
 
-      // 2. Rotate the wheel based on scroll progress
-      gsap.to(wheelRef.current, {
-        rotation: -MAX_ROTATION,
-        ease: "none",
+      // Master timeline for the entire pinned section
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
@@ -53,72 +51,61 @@ export default function Projects() {
             duration: { min: 0.2, max: 0.8 },
             ease: "power2.inOut",
           },
+          onUpdate: (self) => {
+            const currentWheelRot = -self.progress * MAX_ROTATION;
+            itemsRef.current.forEach((_, i) => {
+              const content = contentRefs.current[i];
+              if (!content) return;
+              const globalAngle = i * ANGLE_PER_ITEM + currentWheelRot;
+              const absAngle = Math.abs(globalAngle);
+
+              // If absAngle is 0, it's center.
+              const isActive = absAngle < 5;
+              const opacity = Math.max(0.15, 1 - absAngle / 25);
+              const scale = Math.max(0.85, 1 - absAngle / 60);
+
+              gsap.set(content, {
+                opacity,
+                scale,
+              });
+
+              // Highlight the active link
+              const link = content.querySelector(".project-link");
+              if (link) {
+                if (isActive) {
+                  link.classList.add("pointer-events-auto");
+                  link.classList.remove("pointer-events-none");
+                } else {
+                  link.classList.add("pointer-events-none");
+                  link.classList.remove("pointer-events-auto");
+                }
+              }
+            });
+          },
         },
       });
 
-      // 3. Counter-rotate the contents to keep them upright, and fade based on proximity to center
-      itemsRef.current.forEach((item, i) => {
+      // 2. Rotate the wheel based on scroll progress
+      tl.to(wheelRef.current, {
+        rotation: -MAX_ROTATION,
+        ease: "none",
+      }, 0);
+
+      // 3. Counter-rotate the contents to keep them upright
+      itemsRef.current.forEach((_, i) => {
         const initialAngle = i * ANGLE_PER_ITEM;
         const content = contentRefs.current[i];
         if (!content) return;
 
-        // Counter-rotation
-        gsap.fromTo(
+        tl.fromTo(
           content,
           { rotation: -initialAngle },
           {
             rotation: -initialAngle + MAX_ROTATION,
             ease: "none",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top top",
-              end: "+=4000",
-              scrub: 1,
-            },
-          }
+          },
+          0
         );
-
-        // Opacity and scale based on active state (when content global rotation is near 0)
-        // We can do this by using the scrollTrigger onUpdate
-      });
-
-      // Dynamic opacity/scale update
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=4000",
-        scrub: 1,
-        onUpdate: (self) => {
-          const currentWheelRot = -self.progress * MAX_ROTATION;
-          itemsRef.current.forEach((_, i) => {
-            const content = contentRefs.current[i];
-            if (!content) return;
-            const globalAngle = i * ANGLE_PER_ITEM + currentWheelRot;
-            const absAngle = Math.abs(globalAngle);
-
-            // If absAngle is 0, it's center.
-            const isActive = absAngle < 5;
-            const opacity = Math.max(0.15, 1 - absAngle / 25);
-            const scale = Math.max(0.85, 1 - absAngle / 60);
-
-            gsap.set(content, {
-              opacity,
-              scale,
-            });
-
-            // Highlight the active link
-            const link = content.querySelector(".project-link");
-            if (link) {
-              if (isActive) {
-                link.classList.add("pointer-events-auto");
-                link.classList.remove("pointer-events-none");
-              } else {
-                link.classList.add("pointer-events-none");
-                link.classList.remove("pointer-events-auto");
-              }
-            }
-          });
-        },
       });
     }, containerRef);
 
@@ -157,7 +144,7 @@ export default function Projects() {
             01 / Selected Work
           </span>
           <h2 className="font-serif text-4xl md:text-6xl font-light tracking-tight text-brand-text flex justify-between items-end">
-            <span>Case Studies</span>
+            <span className="shiny-text">Case Studies</span>
             <span className="font-sans text-[11px] md:text-xs text-brand-text-muted uppercase tracking-[0.15em] max-w-[200px] text-right hidden sm:block">
               Scroll to explore
             </span>
