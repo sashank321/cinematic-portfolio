@@ -143,8 +143,8 @@ export default function About() {
               data-cursor="EXPLORE"
             >
               <Image
-                src="/images/interior.png"
-                alt="Sashank — Portrait placeholder"
+                src="/images/sashank.png"
+                alt="Portrait of Sashank"
                 fill
                 className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.04]"
                 sizes="(max-width: 1024px) 100vw, 40vw"

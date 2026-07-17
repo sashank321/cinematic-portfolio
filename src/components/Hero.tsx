@@ -23,10 +23,12 @@ export default function Hero() {
   useEffect(() => {
     const lenis = (window as any).lenis;
     if (lenis) lenis.stop();
+    document.documentElement.style.overflow = "hidden";
 
     const roleEls = rolesContainerRef.current?.querySelectorAll(".role-line");
     const tl = gsap.timeline({
       onComplete: () => {
+        document.documentElement.style.overflow = "";
         if (lenis) lenis.start();
       },
     });
