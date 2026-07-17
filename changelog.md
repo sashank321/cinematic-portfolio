@@ -203,3 +203,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-95: Draft curvilinear mathematics for Project wheel component (#95) at 2026-07-17T15:48:56.842Z -->
 
 <!-- commit-96: Implement radial coordinates translation logic for wheel items (#96) at 2026-07-17T18:30:00.000Z -->
+
+<!-- commit-97: Configure scroll-triggered angle mapping algorithm (#97) at 2026-07-17T21:11:03.157Z -->
