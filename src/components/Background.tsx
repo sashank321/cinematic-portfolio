@@ -35,9 +35,9 @@ export default function Background() {
       ctx.scale(dpr, dpr);
     };
     resize();
-
-    // Starfield Particles (Disabled as per user request - focus on shooting stars)
-    const PARTICLE_COUNT = 0;
+    
+    // Starfield Particles (Stationary/slow aesthetic)
+    const PARTICLE_COUNT = 40;
 
     interface FieldParticle {
       x: number;
@@ -56,6 +56,25 @@ export default function Background() {
     }
 
     const particles: FieldParticle[] = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      particles.push({
+        x,
+        y,
+        baseX: x,
+        baseY: y,
+        vx: 0,
+        vy: 0,
+        size: Math.random() * 1.5 + 0.2,
+        alpha: Math.random() * 0.4 + 0.1, // Dimmer
+        speed: Math.random() * 0.001 + 0.0001, // Extremely slow/stationary
+        angle: Math.random() * Math.PI * 2,
+        angleSpeed: (Math.random() - 0.5) * 0.0001,
+        twinkleSpeed: Math.random() * 0.002 + 0.001, // Slow twinkle
+        z: Math.random() * 80 + 20,
+      });
+    }
 
     // Shooting Stars
     interface ShootingStar {
@@ -114,7 +133,31 @@ export default function Background() {
         launchShootingStar();
       }
 
-      // Draw Starfield / Particles (Disabled)
+      // Draw Starfield / Particles (Stationary & Twinkling)
+      for (const p of particles) {
+        ctx.beginPath();
+        if (isDark) {
+          const twinkle = Math.sin(time * p.twinkleSpeed) * 0.4 + 0.6;
+          const currentAlpha = p.alpha * twinkle * 0.7;
+
+          if (p.size > 1.2) {
+            ctx.shadowBlur = p.size * 4;
+            ctx.shadowColor = `rgba(255, 255, 255, ${currentAlpha * 0.6})`;
+          } else {
+            ctx.shadowBlur = 0;
+          }
+
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha})`;
+          ctx.fill();
+        } else {
+          ctx.shadowBlur = 0;
+          const currentAlpha = Math.random() * 0.04 + 0.02;
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 0, 0, ${currentAlpha})`;
+          ctx.fill();
+        }
+      }
 
       // Draw Shooting Stars (Dark Mode Only)
       if (isDark) {

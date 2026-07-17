@@ -43,9 +43,8 @@ export default function Projects() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=4000",
+          end: "bottom bottom",
           scrub: 1,
-          pin: true,
           snap: {
             snapTo: 1 / (TOTAL_ITEMS - 1),
             duration: { min: 0.2, max: 0.8 },
@@ -135,9 +134,9 @@ export default function Projects() {
     <section
       id="work"
       ref={containerRef}
-      className="w-full relative bg-transparent"
+      className="w-full relative h-[600vh] bg-transparent"
     >
-      <div className="w-full h-screen overflow-hidden flex flex-col pt-32 md:pt-40 select-none bg-transparent">
+      <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col pt-32 md:pt-40 select-none bg-transparent">
         {/* Header */}
         <div className="projects-header max-w-[1400px] w-full mx-auto px-6 md:px-12 z-10 flex-shrink-0">
           <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text-muted uppercase block mb-3">
