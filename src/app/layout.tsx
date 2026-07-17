@@ -55,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} antialiased`} suppressHydrationWarning>
-      <body className="text-brand-text min-h-screen relative selection:bg-brand-neutral select-none overflow-x-hidden transition-colors duration-700">
+      <body className="text-brand-text min-h-screen relative selection:bg-brand-neutral select-none transition-colors duration-700">
         <Background />
         <div className="noise-overlay" aria-hidden="true" />
         {children}
