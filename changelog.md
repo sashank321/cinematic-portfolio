@@ -211,3 +211,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-99: Implement scroll progress tracking utility component (#99) at 2026-07-18T02:33:09.473Z -->
 
 <!-- commit-100: Attach active center limelight focus to timeline (#100) at 2026-07-18T05:14:12.631Z -->
+
+<!-- commit-101: Add active state detection on timeline scrolling offset (#101) at 2026-07-18T07:55:15.789Z -->
