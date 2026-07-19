@@ -239,12 +239,12 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="font-serif text-[11vw] sm:text-[7vw] md:text-[5.5vw] lg:text-[4.8vw] font-light leading-[1.08] tracking-tight text-brand-text">
-              <span className="block overflow-hidden py-1">
+              <span className="block overflow-hidden pt-1 pb-[0.25em] -mb-[0.2em]">
                 <span className="block hero-line-inner translate-y-[120%] origin-top-left shiny-text">
                   Designing software
                 </span>
               </span>
-              <span className="block overflow-hidden py-1">
+              <span className="block overflow-hidden pt-1 pb-[0.25em] -mb-[0.2em]">
                 <span className="block hero-line-inner translate-y-[120%] origin-top-left text-brand-text-muted">
                   people remember.
                 </span>
