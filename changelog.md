@@ -235,3 +235,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-111: Improve typography font sizes scale in dynamic routes (#111) at 2026-07-19T10:45:47.368Z -->
 
 <!-- commit-112: Add pulsing green indicator in contact footer section (#112) at 2026-07-19T13:26:50.526Z -->
+
+<!-- commit-113: Optimise IST time string formatting logic in footer (#113) at 2026-07-19T16:07:53.684Z -->
