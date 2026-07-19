@@ -223,3 +223,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-105: Refine tick mark aesthetics matching original mockup concept (#105) at 2026-07-18T18:39:28.421Z -->
 
 <!-- commit-106: Create case study page header cinematic image node (#106) at 2026-07-18T21:20:31.578Z -->
+
+<!-- commit-107: Refine back buttons on detail page to use magnetic physics (#107) at 2026-07-19T00:01:34.736Z -->
