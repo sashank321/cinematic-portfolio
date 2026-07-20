@@ -251,3 +251,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-119: Include depth vectors parsing for starry canvas particle flow (#119) at 2026-07-20T08:14:12.631Z -->
 
 <!-- commit-120: Implement GSAP pinning mechanisms on active scrolling section (#120) at 2026-07-20T10:55:15.789Z -->
+
+<!-- commit-121: Deactivate background element scroll block conflicts (#121) at 2026-07-20T13:36:18.947Z -->
