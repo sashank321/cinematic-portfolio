@@ -249,3 +249,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-118: Add shooting stars module logic to space background layer (#118) at 2026-07-20T05:33:09.473Z -->
 
 <!-- commit-119: Include depth vectors parsing for starry canvas particle flow (#119) at 2026-07-20T08:14:12.631Z -->
+
+<!-- commit-120: Implement GSAP pinning mechanisms on active scrolling section (#120) at 2026-07-20T10:55:15.789Z -->
