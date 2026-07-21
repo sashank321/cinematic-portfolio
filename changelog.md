@@ -261,3 +261,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-124: Compile and test build checks clean validation (#124) at 2026-07-20T21:39:28.421Z -->
 
 <!-- commit-125: Initial commit - project setup and dependencies config (#125) at 2026-07-21T00:20:31.578Z -->
+
+<!-- commit-126: Add Next.js app layout skeleton (#126) at 2026-07-21T03:01:34.736Z -->
