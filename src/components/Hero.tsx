@@ -4,6 +4,15 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 import ParticleText from "./ParticleText";
 
+const ROTATING_PHRASES = [
+  "people remember.",
+  "users love.",
+  "that inspires.",
+  "that scales.",
+  "built to last.",
+  "that stands out.",
+];
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -13,8 +22,10 @@ export default function Hero() {
   const rolesContainerRef = useRef<HTMLDivElement>(null);
   const percentageRef = useRef<HTMLDivElement>(null);
   const percentageValueRef = useRef<HTMLSpanElement>(null);
+  const rotatingTextRef = useRef<HTMLSpanElement>(null);
 
   const [particleFontSize, setParticleFontSize] = useState(140);
+  const [phraseIndex, setPhraseIndex] = useState(0);
 
   useEffect(() => {
     setParticleFontSize(window.innerWidth < 768 ? 60 : 140);
@@ -26,98 +37,147 @@ export default function Hero() {
     document.documentElement.style.overflow = "hidden";
 
     const roleEls = rolesContainerRef.current?.querySelectorAll(".role-line");
+    let phraseInterval: NodeJS.Timeout | null = null;
+
     const tl = gsap.timeline({
       onComplete: () => {
         document.documentElement.style.overflow = "";
         if (lenis) lenis.start();
-      },
-    });
 
-    // ─── PHASE 1: Black screen (0.4s) ───
-    tl.to({}, { duration: 0.4 });
-
-    // ─── PHASE 2: Particle text "SASHANK" fades in ───
-    tl.to(particleContainerRef.current, {
-      opacity: 1,
-      duration: 1,
-      ease: "power2.out",
-    });
-
-    // Hold for interaction
-    tl.to({}, { duration: 1.5 });
-
-    // ─── PHASE 3: Particles fade out, roles cycle ───
-    tl.to(particleContainerRef.current, {
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.in",
-    });
-
-    // Show roles container
-    tl.set(rolesContainerRef.current, { opacity: 1 });
-
-    // Cycle through each role line
-    if (roleEls) {
-      roleEls.forEach((el, idx) => {
-        tl.fromTo(
-          el,
-          { opacity: 0, y: 20, filter: "blur(6px)" },
-          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }
-        );
-        tl.to({}, { duration: 0.25 });
-        tl.to(el, {
-          opacity: 0,
-          y: -15,
-          filter: "blur(4px)",
-          duration: 0.3,
-          ease: "power2.in",
-        });
-      });
-    }
-
-    // ─── PHASE 4: Loading percentage ───
-    tl.set(percentageRef.current, { opacity: 1 });
-    tl.to(
-      { val: 0 },
-      {
-        val: 100,
-        duration: 1.2,
-        ease: "power2.inOut",
-        onUpdate: function () {
-          if (percentageValueRef.current) {
-            percentageValueRef.current.textContent = String(
-              Math.round(this.targets()[0].val)
-            ).padStart(3, "0");
+        // Start cycling headline phrases
+        let idx = 0;
+        phraseInterval = setInterval(() => {
+          const nextIdx = (idx + 1) % ROTATING_PHRASES.length;
+          if (rotatingTextRef.current) {
+            gsap.timeline()
+              .to(rotatingTextRef.current, {
+                y: -18,
+                opacity: 0,
+                filter: "blur(4px)",
+                duration: 0.45,
+                ease: "power2.in",
+                onComplete: () => {
+                  idx = nextIdx;
+                  setPhraseIndex(nextIdx);
+                },
+              })
+              .set(rotatingTextRef.current, { y: 22, opacity: 0, filter: "blur(4px)" })
+              .to(rotatingTextRef.current, {
+                y: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                duration: 0.55,
+                ease: "power3.out",
+              });
           }
-        },
-      }
-    );
-
-    tl.to(percentageRef.current, {
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.in",
-    });
-
-    // ─── PHASE 5: Loader fades, hero clip-path expands ───
-    tl.to(loaderRef.current, {
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.inOut",
-    });
-
-    // Clip-path reveal
-    tl.set(heroRevealRef.current, { display: "block" });
-    tl.fromTo(
-      heroRevealRef.current,
-      { clipPath: "circle(0% at 50% 50%)" },
-      {
-        clipPath: "circle(100% at 50% 50%)",
-        duration: 1.8,
-        ease: "power4.inOut",
+        }, 3200);
       },
-      "-=0.5"
-    );
+    });
+
+    const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
+
+    if (!hasSeenLoader) {
+      sessionStorage.setItem("hasSeenLoader", "true");
+      
+      // ─── PHASE 1: Black screen (0.4s) ───
+      tl.to({}, { duration: 0.4 });
+
+      // ─── PHASE 2: Particle text "SASHANK" fades in ───
+      tl.to(particleContainerRef.current, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      });
+
+      // Hold for interaction
+      tl.to({}, { duration: 1.5 });
+
+      // ─── PHASE 3: Particles fade out, roles cycle ───
+      tl.to(particleContainerRef.current, {
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in",
+      });
+
+      // Show roles container
+      tl.set(rolesContainerRef.current, { opacity: 1 });
+
+      // Cycle through each role line
+      if (roleEls) {
+        roleEls.forEach((el, idx) => {
+          tl.fromTo(
+            el,
+            { opacity: 0, y: 20, filter: "blur(6px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }
+          );
+          tl.to({}, { duration: 0.25 });
+          tl.to(el, {
+            opacity: 0,
+            y: -15,
+            filter: "blur(4px)",
+            duration: 0.3,
+            ease: "power2.in",
+          });
+        });
+      }
+
+      // ─── PHASE 4: Loading percentage ───
+      tl.set(percentageRef.current, { opacity: 1 });
+      tl.to(
+        { val: 0 },
+        {
+          val: 100,
+          duration: 1.2,
+          ease: "power2.inOut",
+          onUpdate: function () {
+            if (percentageValueRef.current) {
+              percentageValueRef.current.textContent = String(
+                Math.round(this.targets()[0].val)
+              ).padStart(3, "0");
+            }
+          },
+        }
+      );
+
+      tl.to(percentageRef.current, {
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.in",
+      });
+
+      // ─── PHASE 5: Loader fades, hero clip-path expands ───
+      tl.to(loaderRef.current, {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
+
+      // Clip-path reveal
+      tl.set(heroRevealRef.current, { display: "block" });
+      tl.fromTo(
+        heroRevealRef.current,
+        { clipPath: "circle(0% at 50% 50%)" },
+        {
+          clipPath: "circle(100% at 50% 50%)",
+          duration: 1.8,
+          ease: "power4.inOut",
+        },
+        "-=0.5"
+      );
+    } else {
+      // User has seen the loader, skip straight to hero reveal
+      tl.set(loaderRef.current, { display: "none" });
+      tl.set(heroRevealRef.current, { display: "block" });
+      tl.fromTo(
+        heroRevealRef.current,
+        { clipPath: "circle(50% at 50% 50%)" },
+        {
+          clipPath: "circle(100% at 50% 50%)",
+          duration: 1.2,
+          ease: "power3.out",
+        }
+      );
+    }
 
     // Headline lines
     tl.fromTo(
@@ -159,6 +219,10 @@ export default function Hero() {
 
     // Remove loader
     tl.set(loaderRef.current, { display: "none" });
+
+    return () => {
+      if (phraseInterval) clearInterval(phraseInterval);
+    };
   }, []);
 
   return (
@@ -238,15 +302,17 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-[11vw] sm:text-[7vw] md:text-[5.5vw] lg:text-[4.8vw] font-light leading-[1.08] tracking-tight text-brand-text">
-              <span className="block overflow-hidden pt-1 pb-[0.25em] -mb-[0.2em]">
-                <span className="block hero-line-inner translate-y-[120%] origin-top-left shiny-text">
-                  Designing software
+            <h1 className="font-serif text-[10vw] sm:text-[6.2vw] md:text-[4.6vw] lg:text-[4.1vw] font-light leading-[1.22] tracking-tight text-brand-text">
+              <span className="block overflow-hidden py-3 -my-2">
+                <span className="block hero-line-inner translate-y-[120%] origin-top-left shiny-text pt-1 pb-3">
+                  Designing and building software
                 </span>
               </span>
-              <span className="block overflow-hidden pt-1 pb-[0.25em] -mb-[0.2em]">
-                <span className="block hero-line-inner translate-y-[120%] origin-top-left text-brand-text-muted">
-                  people remember.
+              <span className="block overflow-hidden py-3 -my-2">
+                <span className="block hero-line-inner translate-y-[120%] origin-top-left text-brand-text-muted pt-1 pb-3">
+                  <span ref={rotatingTextRef} className="inline-block">
+                    {ROTATING_PHRASES[phraseIndex]}
+                  </span>
                 </span>
               </span>
             </h1>

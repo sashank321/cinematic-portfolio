@@ -15,8 +15,8 @@ export default function Projects() {
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const RADIUS = 2000;
-  const ANGLE_PER_ITEM = 12; // degrees between projects
+  const RADIUS = 3500;
+  const ANGLE_PER_ITEM = 7; // degrees between projects
   const TOTAL_ITEMS = PROJECTS_DATA.length;
   const MAX_ROTATION = (TOTAL_ITEMS - 1) * ANGLE_PER_ITEM;
 

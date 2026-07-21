@@ -10,12 +10,14 @@ import Skills from "src/components/Skills";
 import Contact from "src/components/Contact";
 
 import ScrollProgress from "src/components/ScrollProgress";
+import StarsBackground from "src/components/StarsBackground";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <CustomCursor />
       <Navbar />
+      <StarsBackground />
 
       <ScrollProgress />
 

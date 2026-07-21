@@ -88,7 +88,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={containerRef}
-      className="w-full py-24 md:py-32 select-none section-reveal bg-brand-bg relative z-10"
+      className="w-full py-24 md:py-32 select-none section-reveal bg-transparent relative z-10"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Section Header */}

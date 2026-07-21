@@ -12,20 +12,22 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState(0);
-  const [isDark, setIsDark] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const limelightRef = useRef<HTMLDivElement>(null);
   const navItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
-    // Initial theme check
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      document.documentElement.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-    }
+    document.documentElement.classList.add("dark");
+
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,13 +52,19 @@ export default function Navbar() {
     });
 
     // Enter animation for nav
+    const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
+    const enterDelay = hasSeenLoader ? 1.5 : 5.5;
+
     gsap.fromTo(
       ".nav-container",
-      { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 5.5 }
+      { y: -40, opacity: 0, scale: 0.95 },
+      { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "expo.out", delay: enterDelay }
     );
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -69,12 +77,12 @@ export default function Navbar() {
         gsap.to(limelightRef.current, {
           x: rect.left - parentRect.left,
           width: rect.width,
-          duration: 0.5,
-          ease: "expo.out",
+          duration: 0.6,
+          ease: "back.out(1.2)",
         });
       }
     }
-  }, [activeItem]);
+  }, [activeItem, isScrolled]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string, index: number) => {
     e.preventDefault();
@@ -85,61 +93,50 @@ export default function Navbar() {
     setActiveItem(index);
   };
 
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    if (next) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
   return (
-    <div className="fixed top-6 right-6 md:right-12 z-40 transition-all duration-500 nav-container opacity-0">
-      <nav className="relative inline-flex items-center h-14 rounded-full bg-[#ffffff]/10 dark:bg-[#000000]/40 backdrop-blur-2xl text-brand-text border border-[#ffffff]/20 dark:border-[#ffffff]/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6)]">
-        {/* Limelight */}
+    <div
+      className={`fixed right-6 md:right-12 z-40 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] nav-container opacity-0 ${
+        isScrolled ? "top-4 scale-95 md:scale-95" : "top-6 scale-100"
+      }`}
+    >
+      <nav
+        className={`relative inline-flex items-center rounded-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] border backdrop-blur-3xl text-brand-text h-12 ${
+          isScrolled
+            ? "bg-[#050505]/60 border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.85),inset_0_1px_0_0_rgba(255,255,255,0.05)]"
+            : "bg-[#0a0a0a]/30 border-white/[0.03] shadow-[0_8px_32px_0_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.02)]"
+        }`}
+      >
+        {/* Limelight Spotlight Beam */}
         <div
           ref={limelightRef}
-          className="absolute left-0 h-10 top-2 rounded-full bg-brand-text/10 dark:bg-[#ffffff]/10 pointer-events-none"
-        />
+          className="absolute left-0 top-1 bottom-1 rounded-full pointer-events-none transition-all duration-300 opacity-60"
+        >
+          {/* Top light beam source */}
+          <div className="absolute -top-[1px] left-3 right-3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent shadow-[0_0_3px_rgba(255,255,255,0.3)]" />
+          {/* Ambient inner spotlight glow */}
+          <div className="w-full h-full rounded-full bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent border border-white/5 shadow-[0_0_8px_rgba(255,255,255,0.05)]" />
+        </div>
 
-        <div className="flex items-center px-2">
-          {NAV_ITEMS.map((item, index) => (
-            <a
-              key={item.id}
-              ref={el => { navItemRefs.current[index] = el; }}
-              href={`#${item.id}`}
-              className="relative z-20 flex h-full cursor-pointer items-center justify-center px-5 py-2 font-sans text-[10px] uppercase tracking-widest font-bold"
-              onClick={(e) => handleNavClick(e, item.id, index)}
-              data-cursor="CLICK"
-            >
-              {item.label}
-            </a>
-          ))}
-
-          {/* Theme Toggle Button built into the Navbar */}
-          <button
-            onClick={toggleTheme}
-            className="relative z-20 ml-2 w-10 h-10 flex items-center justify-center rounded-full bg-brand-text/5 hover:bg-brand-text/10 transition-colors duration-300 magnetic-btn"
-            data-cursor="CLICK"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? (
-              // Sun icon for dark mode
-              <svg className="w-4 h-4 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                <circle cx="12" cy="12" r="5" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-              </svg>
-            ) : (
-              // Moon icon for light mode
-              <svg className="w-4 h-4 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            )}
-          </button>
+        <div className="relative z-20 flex items-center px-2">
+          {NAV_ITEMS.map((item, index) => {
+            const isActive = activeItem === index;
+            return (
+              <a
+                key={item.id}
+                ref={(el) => {
+                  navItemRefs.current[index] = el;
+                }}
+                href={`#${item.id}`}
+                className={`relative z-20 flex h-full cursor-pointer items-center justify-center transition-colors duration-300 font-sans text-[10px] uppercase tracking-[0.2em] font-bold px-5 py-2 ${
+                  isActive ? "text-white drop-shadow-[0_0_4px_rgba(255,255,255,0.3)]" : "text-brand-text-muted hover:text-white"
+                }`}
+                onClick={(e) => handleNavClick(e, item.id, index)}
+                data-cursor="CLICK"
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
       </nav>
     </div>

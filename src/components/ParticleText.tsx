@@ -62,6 +62,8 @@ export default function ParticleText({
       const width = rect.width;
       const height = rect.height;
 
+      if (width === 0 || height === 0) return;
+
       // Draw text to sample pixel positions
       ctx.fillStyle = particleColor;
       ctx.textAlign = "center";
@@ -79,6 +81,8 @@ export default function ParticleText({
       });
 
       // Sample pixel data
+      if (canvas.width === 0 || canvas.height === 0) return;
+      
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const pixels = imageData.data;
       const particles: Particle[] = [];

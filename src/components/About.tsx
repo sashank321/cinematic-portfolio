@@ -10,28 +10,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TIMELINE_DATA = [
   {
-    year: "2022",
-    title: "Started B.Tech in Computer Science",
-    description: "Began undergraduate studies, diving into foundational CS concepts, data structures, and algorithms.",
-    tags: ["University", "CS Fundamentals"],
-  },
-  {
-    year: "2023",
+    year: "2025",
     title: "Java Applications & OOP Mastery",
     description: "Built a suite of object-oriented applications. Gained deep understanding of design patterns, multithreading, and system architecture.",
     tags: ["Java", "OOP", "Systems"],
   },
   {
-    year: "2024",
-    title: "Data Science & Frontend Engineering",
-    description: "Completed an advertising sales analysis project using Python and statistical modeling. Started building modern web applications with React.",
+    year: "2025",
+    title: "Data Science & Analytics",
+    description: "Completed an advertising sales analysis project using Python and statistical modeling. Built modern web interfaces with React.",
     tags: ["Python", "Data Science", "React"],
   },
   {
     year: "2025",
-    title: "College Website Redesign & ML",
-    description: "Led a complete university website overhaul. Began exploring neural networks, PyTorch, and predictive modeling.",
-    tags: ["UX/UI", "Machine Learning", "Leadership"],
+    title: "Machine Learning & Predictive Models",
+    description: "Explored neural networks, PyTorch, and predictive modeling for real-world dataset classification and regression.",
+    tags: ["Python", "PyTorch", "Machine Learning"],
+  },
+  {
+    year: "2026",
+    title: "Cortex AI & Agent Orchestration",
+    description: "Engineered Cortex AI — an autonomous multi-agent orchestration framework supporting real-time streaming and high-throughput reasoning.",
+    tags: ["FastAPI", "Python", "AI Agents", "Redis"],
   },
   {
     year: "2026",
@@ -120,7 +120,7 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
-      className="w-full py-24 md:py-40 select-none section-reveal bg-brand-bg relative z-10"
+      className="w-full py-24 md:py-40 select-none section-reveal bg-transparent relative z-10"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Section Header — horizontal wipe */}

@@ -91,7 +91,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={containerRef}
-      className="w-full pt-24 pb-12 select-none section-reveal bg-brand-bg relative z-10"
+      className="w-full pt-24 pb-12 select-none section-reveal bg-transparent relative z-10"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col min-h-[60vh] justify-between">
         {/* Header */}

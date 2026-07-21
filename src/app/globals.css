@@ -205,3 +205,12 @@ html.dark *:focus-visible {
     background-position: 200% center;
   }
 }
+
+@keyframes starPulse {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(0.8); }
+}
+.animate-star-pulse {
+  animation: starPulse infinite ease-in-out;
+}
