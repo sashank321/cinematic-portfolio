@@ -259,3 +259,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-123: Incorporate user details mapping update triggers (#123) at 2026-07-20T18:58:25.263Z -->
 
 <!-- commit-124: Compile and test build checks clean validation (#124) at 2026-07-20T21:39:28.421Z -->
+
+<!-- commit-125: Initial commit - project setup and dependencies config (#125) at 2026-07-21T00:20:31.578Z -->
