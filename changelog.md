@@ -291,3 +291,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-139: Implement custom noise overlay canvas (#139) at 2026-07-22T13:55:15.789Z -->
 
 <!-- commit-140: Draft Case Studies data structures (#140) at 2026-07-22T16:36:18.947Z -->
+
+<!-- commit-141: Build Work section container component (#141) at 2026-07-22T19:17:22.105Z -->
