@@ -293,3 +293,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-140: Draft Case Studies data structures (#140) at 2026-07-22T16:36:18.947Z -->
 
 <!-- commit-141: Build Work section container component (#141) at 2026-07-22T19:17:22.105Z -->
+
+<!-- commit-142: Configure routing configuration for project pages (#142) at 2026-07-22T21:58:25.263Z -->
