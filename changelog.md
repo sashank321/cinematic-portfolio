@@ -295,3 +295,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-141: Build Work section container component (#141) at 2026-07-22T19:17:22.105Z -->
 
 <!-- commit-142: Configure routing configuration for project pages (#142) at 2026-07-22T21:58:25.263Z -->
+
+<!-- commit-143: Add NextJS dynamic segment work/[id] route configuration (#143) at 2026-07-23T00:39:28.421Z -->
