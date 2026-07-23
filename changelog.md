@@ -307,3 +307,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-147: Draft basic particles dynamic movement script (#147) at 2026-07-23T11:23:41.052Z -->
 
 <!-- commit-148: Optimise canvas resize behavior to prevent redraw lag (#148) at 2026-07-23T14:04:44.210Z -->
+
+<!-- commit-149: Integrate ThemeToggle custom widget logic (#149) at 2026-07-23T16:45:47.368Z -->
