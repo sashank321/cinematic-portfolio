@@ -315,3 +315,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-151: Reposition navigation bar layout to top-right design (#151) at 2026-07-23T22:07:53.684Z -->
 
 <!-- commit-152: Refine navigation selection tracking limelight indicator (#152) at 2026-07-24T00:48:56.842Z -->
+
+<!-- commit-153: Ensure dark mode defaults correctly on initial visit (#153) at 2026-07-24T03:30:00.000Z -->
