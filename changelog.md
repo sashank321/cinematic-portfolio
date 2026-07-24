@@ -319,3 +319,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-153: Ensure dark mode defaults correctly on initial visit (#153) at 2026-07-24T03:30:00.000Z -->
 
 <!-- commit-154: Convert background style color parameters to Tailwind v4 variables (#154) at 2026-07-24T06:11:03.157Z -->
+
+<!-- commit-155: Implement true OLED black styling definitions (#155) at 2026-07-24T08:52:06.315Z -->
