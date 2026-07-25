@@ -339,3 +339,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-163: Add active state detection on timeline scrolling offset (#163) at 2026-07-25T06:20:31.578Z -->
 
 <!-- commit-164: Implement transition delay curves for inactive carousel items (#164) at 2026-07-25T09:01:34.736Z -->
+
+<!-- commit-165: Optimise wheel rendering path using translate3d triggers (#165) at 2026-07-25T11:42:37.894Z -->
