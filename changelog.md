@@ -355,3 +355,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-171: Create responsive styling breakpoints for curvilinear timeline (#171) at 2026-07-26T03:48:56.842Z -->
 
 <!-- commit-172: Configure touch gestures smooth handling on mobile screens (#172) at 2026-07-26T06:30:00.000Z -->
+
+<!-- commit-173: Improve typography font sizes scale in dynamic routes (#173) at 2026-07-26T09:11:03.157Z -->
