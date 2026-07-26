@@ -351,3 +351,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-169: Refine back buttons on detail page to use magnetic physics (#169) at 2026-07-25T22:26:50.526Z -->
 
 <!-- commit-170: Add dynamic page SEO title metadata overrides (#170) at 2026-07-26T01:07:53.684Z -->
+
+<!-- commit-171: Create responsive styling breakpoints for curvilinear timeline (#171) at 2026-07-26T03:48:56.842Z -->
