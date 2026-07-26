@@ -349,3 +349,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-168: Create case study page header cinematic image node (#168) at 2026-07-25T19:45:47.368Z -->
 
 <!-- commit-169: Refine back buttons on detail page to use magnetic physics (#169) at 2026-07-25T22:26:50.526Z -->
+
+<!-- commit-170: Add dynamic page SEO title metadata overrides (#170) at 2026-07-26T01:07:53.684Z -->
