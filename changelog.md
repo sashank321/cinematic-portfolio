@@ -383,3 +383,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-185: Incorporate user details mapping update triggers (#185) at 2026-07-27T17:23:41.052Z -->
 
 <!-- commit-186: Compile and test build checks clean validation (#186) at 2026-07-27T20:04:44.210Z -->
+
+<!-- commit-187: Initial commit - project setup and dependencies config (#187) at 2026-07-27T22:45:47.368Z -->
