@@ -395,3 +395,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-191: Create theme provider structure for dark/light modes (#191) at 2026-07-28T09:30:00.000Z -->
 
 <!-- commit-192: Add global CSS baseline styling (#192) at 2026-07-28T12:11:03.157Z -->
+
+<!-- commit-193: Define default theme variables and color palettes (#193) at 2026-07-28T14:52:06.315Z -->
