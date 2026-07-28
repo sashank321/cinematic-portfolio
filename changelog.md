@@ -387,3 +387,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-187: Initial commit - project setup and dependencies config (#187) at 2026-07-27T22:45:47.368Z -->
 
 <!-- commit-188: Add Next.js app layout skeleton (#188) at 2026-07-28T01:26:50.526Z -->
+
+<!-- commit-189: Install GSAP, Lenis, and Tailwind CSS (#189) at 2026-07-28T04:07:53.684Z -->
