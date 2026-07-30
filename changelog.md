@@ -421,3 +421,5 @@ All notable changes to this project will be documented in this file.
 <!-- commit-204: Configure routing configuration for project pages (#204) at 2026-07-29T20:23:41.052Z -->
 
 <!-- commit-205: Add NextJS dynamic segment work/[id] route configuration (#205) at 2026-07-29T23:04:44.210Z -->
+
+<!-- commit-206: Create generic template layout for project case studies (#206) at 2026-07-30T01:45:47.368Z -->
